@@ -1,0 +1,6 @@
+t-shirts
+pants
+toothbrush
+schampoo
+deodorant
+socks
