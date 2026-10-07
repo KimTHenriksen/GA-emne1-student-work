@@ -149,3 +149,64 @@ WHERE LifeExpectancy IS NOT NULL;
 -- IS NULL shows 17 countries
 -- IS NOT NULL shows 222 countries
 -- Together the two results give the total number of countries.
+
+
+-- 10 READ AND CORRECT QUERIES
+
+-- Task 10.1 Signs have disappeared
+
+-- Find and correct the error:
+SELECT Name Population
+FROM city
+WHERE CountryCode = 'ITA';
+
+-- Correct. Missing comma between Name and Population.
+SELECT Name, Population
+FROM city
+WHERE CountryCode = 'ITA';
+
+
+-- Task 10.2 Text values
+
+-- Find and correct the error:
+SELECT Name, Population
+FROM city
+WHERE CountryCode = ITA;
+
+-- Correct. ITA without quotes is read as a column name, but 'ITA' is a text value in CountryCode.
+SELECT Name, Population
+FROM city
+WHERE CountryCode = 'ITA';
+
+
+-- Task 10.3 Which cities gets trough
+
+-- Find and correct the error:
+SELECT Name, CountryCode, Population
+FROM city
+WHERE CountryCode = 'EGY'
+   OR CountryCode = 'MAR'
+    AND Population > 1000000;
+
+-- Correct. Without parentheses, Population only applies to Morocco.
+-- With parentheses, Population applies to both countries.
+SELECT Name, CountryCode, Population
+FROM city
+WHERE (CountryCode = 'EGY'
+   OR CountryCode = 'MAR')
+    AND Population > 1000000;
+
+
+-- Task 10.4 An empty result does not always mean the right conditions
+
+-- Find and correct the error:
+SELECT Name, HeadOfState
+FROM country
+WHERE HeadOfState = NULL;
+
+-- Correct. Change to IS NULL.
+SELECT Name, HeadOfState
+FROM country
+WHERE HeadOfState IS NULL;
+
+-- The query can run without an error, but still give the wrong result.
