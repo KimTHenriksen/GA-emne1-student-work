@@ -104,3 +104,48 @@ ORDER BY LifeExpectancy DESC, CODE ASC
 LIMIT 10;
 
 
+-- 9 COUNT ROWS WITH COUNT
+
+-- Task 9.1 How many cities and countries
+
+-- Get all the rows in city and country with two queries.
+SELECT COUNT(*) AS CityCount
+FROM city;
+
+SELECT COUNT(*) AS CountryCount
+FROM country;
+
+-- COUNT(*) counts all the rows and shows the total in one row.
+
+
+-- Task 9.2 Count a filtered section
+
+-- Count cities in Mexico (MEX), with at least 500 000 inhabitants.
+-- Use alias LargeCityCount
+SELECT COUNT(*) AS LargeCityCount
+FROM city
+WHERE CountryCode = 'MEX'
+    AND Population >= 500000;
+
+-- Control the result with a query, showing Name and Population
+SELECT Name, Population
+FROM city
+WHERE CountryCode = 'MEX'
+    AND Population >= 500000;
+
+
+-- Task 9.3 How many values are missing
+
+-- Count countries with no LifeExpectancy.
+SELECT COUNT(*)
+FROM country
+WHERE LifeExpectancy IS NULL;
+
+-- Count countries with LifeExpectancy in another query.
+SELECT COUNT(*)
+FROM country
+WHERE LifeExpectancy IS NOT NULL;
+
+-- IS NULL shows 17 countries
+-- IS NOT NULL shows 222 countries
+-- Together the two results give the total number of countries.
