@@ -52,3 +52,55 @@ ORDER BY Name;
 -- % means there can be characters before or after, depending on where it is placed.
 -- _ represents one character, so the numbers of "_" controls the number of characters.
 
+
+-- 8 LISTS AND MISSING VALUES
+
+-- Task 8.1 Three countries with IN
+
+-- Get Name, CountryCode and Population for cities in France (FRA), Spain (ESP) and Portugal (PRT). Use IN.
+SELECT Name, CountryCode, Population
+FROM city
+WHERE Countrycode IN ('FRA', 'ESP', 'PRT')
+
+-- Sort on CountryCode and then Name of the cities.
+SELECT Name, CountryCode, Population
+FROM city
+WHERE Countrycode IN ('FRA', 'ESP', 'PRT')
+ORDER BY CountryCode, NAME;
+
+
+-- Task 8.2 IN and OR
+
+-- IN and OR gives the same result, but IN is shorter to write.
+SELECT Name, CountryCode, Population
+FROM city
+WHERE (Countrycode = 'FRA'
+    OR CountryCode ='ESP'
+    OR CountryCode = 'PRT')
+AND Population >= 300000
+ORDER BY CountryCode, Name;
+
+
+-- Task 8.3 Missing life expectancy
+
+-- Get Name and LifeExpectancy for countries , where life expectancy hasn't been registered.
+-- Use IS NULL.
+SELECT Name, LifeExpectancy
+FROM country
+WHERE LifeExpectancy IS NULL;
+
+-- NULL means there is no information filled in.
+
+
+-- Task 8.4 Recorded life expectancy
+
+-- Get Name and LifeExpectancy for countries with a register value.
+-- Use IS NOT NULL and sort on life expectancy descending. Sort on Code ascending
+-- Show the ten first rows.
+SELECT Name, LifeExpectancy
+FROM country
+WHERE LifeExpectancy IS NOT NULL
+ORDER BY LifeExpectancy DESC, CODE ASC
+LIMIT 10;
+
+
