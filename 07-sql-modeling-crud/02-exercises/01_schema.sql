@@ -36,3 +36,10 @@
 
 -- Area name, animal name, species and area_id must have a value (NOT NULL).
 -- Areas name must be UNIQUE
+
+
+-- TASK 2.3 PLACE THE KEYS
+
+-- Both tables use id as PRIMARY KEY because each record need a unique ID
+-- animals.area.id is a FOREIGN KEY that refers to areas.id
+-- We use area_id for each animal instead of a list of animal IDs in areas
