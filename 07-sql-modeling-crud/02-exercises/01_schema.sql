@@ -49,3 +49,42 @@
 
 -- An area can have 0 or many animals.
 -- An animal must have one area.
+
+
+-- TASK 3.1 SELECT A DATABASE
+
+CREATE DATABASE IF NOT EXISTS animal_shelter_practice;
+
+USE animal_shelter_practice;
+
+SELECT DATABASE();
+
+
+-- TASK 3.2 CREATE AREAS TABLE
+
+CREATE TABLE areas (
+    id INT AUTO_INCREMENT,
+    name VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE (name)
+);
+
+
+-- TASK 3.3 CREATE THE ANIMAL TABLE
+
+CREATE TABLE animals (
+  id INT AUTO_INCREMENT,
+  name VARCHAR(40) NOT NULL,
+  species VARCHAR(20) NOT NULL,
+  weight DECIMAL(5,2),
+  admitted_on DATE,
+  area_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (area_id) REFERENCES areas(id)
+);
+
+
+-- TASK 3.4 CHECK THE STRUCTURE
+
+-- areas must be created before animals because animals refers to areas.id
+-- Both columns need compatible data types so the FOREIGN KEY works.
