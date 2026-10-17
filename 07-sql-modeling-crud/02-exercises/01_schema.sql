@@ -43,3 +43,9 @@
 -- Both tables use id as PRIMARY KEY because each record need a unique ID
 -- animals.area.id is a FOREIGN KEY that refers to areas.id
 -- We use area_id for each animal instead of a list of animal IDs in areas
+
+
+-- TASK 2.4 Draw the relationship
+
+-- An area can have 0 or many animals.
+-- An animal must have one area.
