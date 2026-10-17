@@ -72,3 +72,94 @@ FROM animals;
 -- 4 rows in areas:
 SELECT COUNT(*)
 FROM areas;
+
+
+-- 7 UPDATE SPECIFIC ROWS
+
+-- Task 7.1 Two animals with the same name
+-- Find tha cat Luna and write the ID. Update just this cats weight to 3.9.
+SELECT id, name, species, weight
+FROM animals
+WHERE name = 'Luna';
+
+-- Update the weight
+UPDATE animals
+SET weight = 3.9
+WHERE id = 1;
+
+SELECT id, name, species, weight
+FROM animals
+WHERE name = 'Luna';
+
+-- Using WHERE name = 'Luna' would update both cats
+-- Using the ID only updates the correct cat
+
+
+-- Task 7.2 Two changes in one sentence
+-- Find the dog Rex, and change name to Rex Jr and weight to 19.20
+SELECT id, name, species, weight
+FROM animals
+WHERE name = 'Rex';
+
+UPDATE animals
+SET name = 'Rex Jr', weight = 19.20
+WHERE id = 3;
+
+
+-- Task 7.3 Move an animal
+-- Find tha rabbit Luna
+SELECT name, species, area_id
+FROM animals
+WHERE name = 'Luna' AND species = 'rabbit';
+
+-- Find the area Quiet Zone
+SELECT id, name
+FROM areas
+WHERE name = 'Quiet Zone';
+
+-- Move Luna to Quiet Zone by change area_id
+UPDATE animals
+SET area_id = 4
+WHERE id = 6;
+
+-- Double chek the move:
+SELECT id, name, species, area_id
+FROM animals
+WHERE id = 6;
+
+-- Check if Pip still is in area Small Animals
+SELECT id, name, species, area_id
+FROM animals
+WHERE id = 5;
+
+-- Changed area_id to move the rabbit to another area
+-- Changing the area name would rename the area instead
+
+
+-- Task 7.4 A known value becomes unknown again
+-- Find Nala
+SELECT id, name, weight
+FROM animals
+WHERE name = 'Nala';
+
+-- Registry the weight to 14.60
+UPDATE animals
+SET weight = 14.60
+WHERE id = 4;
+
+-- Registry the weight back to NULL
+UPDATE animals
+SET weight = NULL
+WHERE id = 4;
+
+-- Check Nala
+SELECT id, name, weight
+FROM animals
+WHERE name = 'Nala' AND weight IS NULL;
+
+-- NULL means the weight is unknown
+-- 0 means the weight is known and set to 0
+-- We use IS NULL beacuse NULL doesn't work
+
+-- UPDATE without WHERE can change all rows in the table
+-- Using WHERE id makes sure only correct animal is updated
