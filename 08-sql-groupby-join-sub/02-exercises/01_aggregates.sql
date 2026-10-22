@@ -1,13 +1,13 @@
 -- 8. GROUPING, JOIN AND SUBQUERIES
 
 -- Task 1. Total area
-SELECT SUM(SurfaceArea)
+SELECT SUM(SurfaceArea) AS Areal
 FROM country
 WHERE Continent = 'Asia';
 
 
 -- Task 2. Average population
-SELECT AVG(Population)
+SELECT AVG(Population) AS Average_population
 FROM city
 WHERE CountryCode = 'DNK';
 

@@ -34,7 +34,7 @@ SELECT country.Name,
        countrylanguage.IsOfficial
 FROM country
 LEFT JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
-WHERE countrylanguage.CountryCode is NULL;
+WHERE countrylanguage.CountryCode IS NULL;
 
 
 -- Task 11. A missing link
