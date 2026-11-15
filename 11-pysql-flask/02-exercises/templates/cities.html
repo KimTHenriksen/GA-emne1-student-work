@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>World explorer</title>
+</head>
+<body>
+    <h1>Cities in {{ code }}</h1>
+    <p>Found {{ rows|length }} cities.</p>
+    <ul>
+     {% for name, district, population in rows %}
+    <li>{{ name }} {{ district }} ({{ population }})</li>
+    {% else %}
+    <li>No cities found.</li>
+    {% endfor %}
+    </ul>
+    <a href="/">Home</a>
+</body>
+</html>
