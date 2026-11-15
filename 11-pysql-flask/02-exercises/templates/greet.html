@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Greeting</title>
+</head>
+<body>
+    <h1>Hello, {{ name }}!</h1>
+    <a href="/">Home</a>
+</body>
+</html>
+
+<!--
+The browser sends a request to Flask with name=Anna.
+Flask uses request.args.get() to get the name from the URL.
+Python sends the name to greet.html using render_template().
+Jinja uses {{ name }} to show the name on the page.
+The browser shows "Hello, Anna!".
+-->
